@@ -1,6 +1,6 @@
 {
   "name": "@joe-lep/react-dialog-manager",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Library to streamline dialog workflow",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/joe-lep"
@@ -27,13 +27,13 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.4.0",
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/react": "^18.0.29",
     "@types/uuid": "^9.0.1",
     "react": "^18.2.0",
     "rollup": "^3.20.2",
     "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
     "tslib": "^2.5.0",
     "typescript": "^5.0.2"
   },
