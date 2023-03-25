@@ -1,6 +1,6 @@
 {
   "name": "@joe-lep/react-dialog-manager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library to streamline dialog workflow",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/joe-lep"
@@ -39,5 +39,8 @@
   },
   "dependencies": {
     "uuid": "^9.0.0"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
   }
 }
