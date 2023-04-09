@@ -1,7 +1,8 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import dialogManagerContext from './dialogManagerContext';
 import { DialogObject } from './types';
 import dialogControlContext from './dialogControlContext';
+import { REASON_DIALOG_CLOSED } from './constants';
 
 type Props = {
   dialogObject: DialogObject
@@ -13,24 +14,35 @@ export const DialogObjectWrapper : React.FC<Props> = ({ dialogObject }) => {
     DialogComponent,
     componentProps,
     unloadDelay,
+    delayOpen,
     resolve,
     reject,
   } = dialogObject;
 
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(!delayOpen);
 
-  const { removeDialogDelayed } = useContext(dialogManagerContext);
+  const { removeDialog, removeDialogDelayed } = useContext(dialogManagerContext);
+
+  useEffect(() => {
+    if (delayOpen) {
+      setOpen(true);
+    }
+  }, [delayOpen]);
 
   const handleClose = useCallback(() => {
     setOpen(false);
-    if (removeDialogDelayed) {
+
+    if (unloadDelay) {
       removeDialogDelayed(dialogId, unloadDelay);
     }
+    else {
+      removeDialog(dialogId);
+    }    
   }, [setOpen, removeDialogDelayed, dialogId, unloadDelay]);
 
   const dialogClose = useCallback(() => {
     handleClose();
-    reject('closed');
+    reject(REASON_DIALOG_CLOSED);
   }, [handleClose, reject]);
 
   const dialogSubmit = useCallback((value: any) => {
@@ -38,9 +50,11 @@ export const DialogObjectWrapper : React.FC<Props> = ({ dialogObject }) => {
     handleClose();
   }, [resolve, handleClose]);
 
+  const dialogControlsValue = { open, hasContext: true, dialogClose, dialogSubmit };
+
   return (
-    <dialogControlContext.Provider value={{dialogClose, dialogSubmit}}>
-      <DialogComponent open={open} onClose={dialogClose} {...componentProps} />
+    <dialogControlContext.Provider value={dialogControlsValue}>
+      <DialogComponent {...componentProps} />
     </dialogControlContext.Provider>
   );
 };

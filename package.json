@@ -1,6 +1,6 @@
 {
   "name": "@joe-lep/react-dialog-manager",
-  "version": "0.0.3",
+  "version": "1.0.0-alpha.2",
   "description": "Library to streamline dialog workflow",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/joe-lep"
@@ -12,6 +12,7 @@
   ],
   "types": "dist/index.d.ts",
   "scripts": {
+    "prepare": "npm run rollup",
     "rollup": "rollup -c"
   },
   "repository": {

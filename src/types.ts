@@ -5,6 +5,7 @@ export type DialogObject = {
   DialogComponent: ComponentType<any>;
   componentProps?: any;
   unloadDelay?: number;
+  delayOpen?: boolean;
   resolve: (value: any) => void;
   reject: (reason: any) => void;
 };
@@ -16,6 +17,14 @@ export type DialogManagerContext = {
 };
 
 export type DialogControlContext = {
+  open: boolean;
+  hasContext: boolean;
   dialogClose: () => void;
   dialogSubmit: (value: any) => void;
 };
+
+export type OpenDialogOptions = {
+  componentProps?: any;
+  unloadDelay?: number;
+  delayOpen?: boolean;
+}
