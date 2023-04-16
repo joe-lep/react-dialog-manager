@@ -4,8 +4,8 @@ import { DialogControlContext } from './types';
 const dialogControlContext = createContext<DialogControlContext>({
   open: false,
   hasContext: false,
-  dialogSubmit: () => {},
-  dialogClose: () => {},
+  submitDialog: () => {},
+  closeDialog: () => {},
 });
 
 export default dialogControlContext;
