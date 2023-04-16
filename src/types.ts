@@ -10,8 +10,14 @@ export type DialogObject = {
   reject: (reason: any) => void;
 };
 
+export type OpenDialogOptions = {
+  componentProps?: any;
+  unloadDelay?: number;
+  delayOpen?: boolean;
+}
+
 export type DialogManagerContext = {
-  openDialog: <T = any>(DialogComponent : ComponentType<any>, options?: any) => Promise<T>;
+  openDialog: <T = any>(DialogComponent : ComponentType<any>, options?: OpenDialogOptions) => Promise<T>;
   removeDialog: (dialogId: string) => void;
   removeDialogDelayed: (dialogId: string, dialogUnloadDelay?: number) => void;
 };
@@ -22,9 +28,3 @@ export type DialogControlContext = {
   dialogClose: () => void;
   dialogSubmit: (value: any) => void;
 };
-
-export type OpenDialogOptions = {
-  componentProps?: any;
-  unloadDelay?: number;
-  delayOpen?: boolean;
-}
