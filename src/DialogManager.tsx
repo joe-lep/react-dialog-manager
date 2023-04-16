@@ -34,7 +34,7 @@ export const DialogManager : React.FC<Props> = ({
     });
 
     return dialogPromise;
-  }, [setDialogStackState, unloadDelay]);
+  }, [setDialogStackState, unloadDelay, delayOpen]);
 
   const removeDialog = useCallback((dialogId: string) => {
     setDialogStackState(state => state.filter(item => item.id !== dialogId));
