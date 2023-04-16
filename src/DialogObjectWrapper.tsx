@@ -40,17 +40,17 @@ export const DialogObjectWrapper : React.FC<Props> = ({ dialogObject }) => {
     }    
   }, [setOpen, removeDialogDelayed, dialogId, unloadDelay]);
 
-  const dialogClose = useCallback(() => {
+  const closeDialog = useCallback(() => {
     handleClose();
     reject(REASON_DIALOG_CLOSED);
   }, [handleClose, reject]);
 
-  const dialogSubmit = useCallback((value: any) => {
+  const submitDialog = useCallback((value: any) => {
     resolve(value);
     handleClose();
   }, [resolve, handleClose]);
 
-  const dialogControlsValue = { open, hasContext: true, dialogClose, dialogSubmit };
+  const dialogControlsValue = { open, hasContext: true, closeDialog, submitDialog };
 
   return (
     <dialogControlContext.Provider value={dialogControlsValue}>

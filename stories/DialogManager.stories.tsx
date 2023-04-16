@@ -34,19 +34,19 @@ const submitDialogAction = action('submit-dialog');
 const closeDialogAction = action('close-dialog');
 
 const SimpleDialog = () => {
-  const { open, dialogClose, dialogSubmit } = useDialogControls();
+  const { open, closeDialog, submitDialog } = useDialogControls();
 
   return (
-    <Dialog open={open} onClose={dialogClose}>
+    <Dialog open={open} onClose={closeDialog}>
       <DialogTitle>Simple Test Dialog</DialogTitle>
       <DialogContent>
         <Typography>Simple Test Dialog</Typography>
       </DialogContent>
       <DialogActions>
-        <Button onClick={dialogClose}>
+        <Button onClick={closeDialog}>
           Cancel
         </Button>
-        <Button onClick={dialogSubmit}>
+        <Button onClick={submitDialog}>
           Confirm
         </Button>
       </DialogActions>
@@ -83,7 +83,7 @@ export const SimpleDialogExample : Story = {
 };
 
 const TextDialog = ({ defaultFieldValue = '' }) => {
-  const { open, dialogClose, dialogSubmit } = useDialogControls();
+  const { open, closeDialog, submitDialog } = useDialogControls();
   const [fieldValue, setFieldValue] = useState(defaultFieldValue);
 
   const handleFieldChange = useCallback((event: any) => {
@@ -93,11 +93,11 @@ const TextDialog = ({ defaultFieldValue = '' }) => {
   }, [setFieldValue]);
 
   const handleSubmit = useCallback(() => {
-    dialogSubmit(fieldValue);
-  }, [fieldValue, dialogSubmit]);
+    submitDialog(fieldValue);
+  }, [fieldValue, submitDialog]);
 
   return (
-    <Dialog open={open} onClose={dialogClose}>
+    <Dialog open={open} onClose={closeDialog}>
       <DialogTitle>Dialog With Form Element(s)</DialogTitle>
       <DialogContent>
         <Grid container spacing={2}>
@@ -111,7 +111,7 @@ const TextDialog = ({ defaultFieldValue = '' }) => {
         </Grid>
       </DialogContent>
       <DialogActions>
-        <Button onClick={dialogClose}>
+        <Button onClick={closeDialog}>
           Cancel
         </Button>
         <Button onClick={handleSubmit}>

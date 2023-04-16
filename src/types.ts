@@ -25,6 +25,6 @@ export type DialogManagerContext = {
 export type DialogControlContext = {
   open: boolean;
   hasContext: boolean;
-  dialogClose: () => void;
-  dialogSubmit: (value: any) => void;
+  closeDialog: () => void;
+  submitDialog: (value: any) => void;
 };
