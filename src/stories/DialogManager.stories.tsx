@@ -49,7 +49,7 @@ const OpenSimpleDialogButton = () => {
   }, [openDialog]);
 
   return (
-    <Button onClick={handleClick}>
+    <Button variant="contained" onClick={handleClick}>
       Open Simple Dialog
     </Button>
   );
