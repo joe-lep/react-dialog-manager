@@ -2,9 +2,9 @@ import React, { useCallback, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextField, Typography } from '@mui/material';
-import { DialogManager } from '../DialogManager';
-import { useDialogControls } from '../useDialogControls';
-import { useDialogManager } from '../useDialogManager';
+import { DialogManager } from '../src/DialogManager';
+import { useDialogControls } from '../src/useDialogControls';
+import { useDialogManager } from '../src/useDialogManager';
 
 type Story = StoryObj<typeof DialogManager>;
 
