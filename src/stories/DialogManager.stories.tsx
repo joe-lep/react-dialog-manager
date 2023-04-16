@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { Button, Dialog, DialogActions, DialogContent, DialogTitle, Grid, TextField, Typography } from '@mui/material';
@@ -11,6 +11,21 @@ type Story = StoryObj<typeof DialogManager>;
 const meta : Meta<typeof DialogManager> = {
   title: 'Dialog Manager',
   component: DialogManager,
+  argTypes: {
+    unloadDelay: {
+      control: {
+        type: 'number',
+        min: 0,
+        max: 30000,
+        step: 1000,
+      },
+    },
+    delayOpen: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
 };
 
 export default meta;
@@ -56,8 +71,8 @@ const OpenSimpleDialogButton = () => {
 }
 
 export const SimpleDialogExample : Story = {
-  render: () => (
-    <DialogManager>
+  render: (props) => (
+    <DialogManager {...props}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <OpenSimpleDialogButton />
@@ -128,8 +143,8 @@ const TextDialogButton = () => {
 };
 
 export const DialogWithSubmission : Story = {
-  render: () => (
-    <DialogManager>
+  render: (props) => (
+    <DialogManager {...props}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <TextDialogButton />
