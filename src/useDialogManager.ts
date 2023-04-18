@@ -1,8 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useMemo } from 'react';
 import dialogManagerContext from './dialogManagerContext';
 
 export const useDialogManager = () => {
-  const { openDialog } = useContext(dialogManagerContext);
+  const dialogManager = useContext(dialogManagerContext);
 
-  return { openDialog };
+  return useMemo(() => ({
+    openDialog: dialogManager.openDialog,
+  }), [dialogManager]);
 };
