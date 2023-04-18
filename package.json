@@ -1,10 +1,7 @@
 {
   "name": "@joe-lep/react-dialog-manager",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0",
   "description": "Library to streamline dialog workflow",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/joe-lep"
-  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
