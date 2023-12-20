@@ -1,6 +1,6 @@
 {
   "name": "@joe-lep/react-dialog-manager",
-  "version": "1.0.0",
+  "version": "1.0.1-beta.0",
   "description": "Library to streamline dialog workflow",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
