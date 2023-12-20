@@ -41,7 +41,7 @@ export const DialogManager : React.FC<Props> = ({
   }, [setDialogStackState]);
 
   const removeDialogDelayed = useCallback((dialogId: string, dialogUnloadDelay = 0) => {
-    setInterval(removeDialog, dialogUnloadDelay, dialogId);
+    setTimeout(removeDialog, dialogUnloadDelay, dialogId);
   }, [removeDialog]);
 
   const renderedDialogStack = useMemo(() => {
