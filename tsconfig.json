@@ -1,0 +1,32 @@
+{
+  "include": ["src"],
+  "exclude": [
+    "dist",
+    "node_modules",
+    "src/stories/**/*"
+  ],
+  "compilerOptions": {
+    "lib": ["ESNext", "DOM"],
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "importHelpers": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "checkJs": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true
+  }
+}
